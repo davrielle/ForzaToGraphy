@@ -1,0 +1,217 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(244, 244, 244);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 40px;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    letter-spacing: -1px;
+    font-weight: 700;
+    color: #ff3047;
+}
+
+/* Profil Picture Styling */
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Membuat rounded */
+    object-fit: cover;
+    border: 2px solid #ff3047;
+    transition: transform 0.3s ease;
+}
+/* Styling Pembatas */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 50px 0; /* Jarak atas bawah antara profil & gallery */
+    gap: 20px;
+}
+
+.divider-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #353434; /* Warna abu-abu soft */
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, #333, transparent); /* Garis memudar */
+}
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+/* Gallery Grid */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative; /* Wajib ada ini */
+    background-color: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block; /* WAJIB DI SINI */
+    opacity: 0.8;
+    transition: 0.4s ease;
+}
+
+.gallery-item:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Gelap transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Sembunyi secara default */
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+.overlay-content {
+    text-align: center;
+    color: rgb(226, 226, 226);
+    transform: translateY(20px); /* Teks muncul dari bawah dikit */
+    transition: 0.4s ease;
+}
+.gallery-item:hover .overlay-content {
+    transform: translateY(0);
+}
+.overlay-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 9px;
+    font-weight: 700;
+}
+.overlay-content p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+.overlay {
+    /* ... kodingan lo yang lain ... */
+    pointer-events: none; /* Tambahkan ini! */
+}
+
+/* Lightbox Container */
+.lightbox {
+    display: none; /* Sembunyi secara default */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Latar hitam transparan */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gambar yang muncul di tengah */
+.lightbox-content {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+/* Tombol Close */
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Class bantuan buat nampilin lewat JS */
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+.footer {
+    width: 100%;
+    padding: 60px 0 40px 0; /* Kasih jarak atas biar gak nempel galeri */
+    display: flex;
+    background-color: #0f0f0f; /* Samakan dengan background body */
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    color: #555; /* Warna abu-abu redup */
+    font-weight: 400;
+    margin-top: 0;
+}
+.ig-link {
+    text-decoration: none;
+    color: #1d1d1d;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ig-link:hover {
+    opacity: 1;
+    color: #ff3047; /* Warna aksen pas di-hover (ala-ala gradasi IG) */
+    transform: translateY(-2px);
+}
