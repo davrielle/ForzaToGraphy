@@ -22,30 +22,17 @@ lightbox.addEventListener('click', (e) => {
         lightbox.classList.remove('active');
     }
 });
-// --- Logic Light/Dark Mode ---
+// Tambahkan console log buat ngetes tombolnya fungsi atau nggak
 const themeToggle = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-
-// Cek apakah user sebelumnya udah pilih dark mode
-if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    themeToggle.textContent = '☀️'; // Ganti icon jadi matahari
-}
 
 themeToggle.addEventListener('click', () => {
-    let theme = document.documentElement.getAttribute('data-theme');
-    
-    if (theme === 'dark') {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-        themeToggle.textContent = '🌙';
+    console.log("Tombol diklik!"); // Muncul di inspect element console
+    const root = document.documentElement;
+    if (root.hasAttribute('data-theme')) {
+        root.removeAttribute('data-theme');
+        console.log("Mode Terang");
     } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        themeToggle.textContent = '☀️';
+        root.setAttribute('data-theme', 'dark');
+        console.log("Mode Gelap");
     }
 });
-
-// --- Logic Lightbox lo yang lama (tetap simpan di bawah) ---
-const lightbox = document.getElementById('lightbox');
-// ... rest of your gallery code
