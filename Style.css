@@ -215,3 +215,57 @@ header {
     color: #ff3047; /* Warna aksen pas di-hover (ala-ala gradasi IG) */
     transform: translateY(-2px);
 }
+/* Color Variables */
+:root {
+    --bg-color: rgb(244, 244, 244);
+    --text-color: #1d1d1d;
+    --divider-color: #353434;
+    --line-color: #333;
+    --card-bg: transparent;
+    --footer-text: #555;
+    --accent-color: #ff3047;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0f0f0f;
+    --text-color: #e2e2e2;
+    --divider-color: #bbb;
+    --line-color: #444;
+    --card-bg: #1a1a1a;
+    --footer-text: #888;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    padding: 40px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Update selector yang menggunakan warna */
+.logo h1 { color: var(--accent-color); }
+
+.divider-text { color: var(--divider-color); }
+
+.line { background: linear-gradient(to right, var(--line-color), transparent); }
+
+.footer-content p { color: var(--footer-text); }
+
+.ig-link { color: var(--text-color); }
+
+/* Styling Tombol Toggle */
+.theme-btn {
+    background: none;
+    border: 1px solid var(--accent-color);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
